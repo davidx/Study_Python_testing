@@ -51,25 +51,38 @@
 
 Функция должна возвращать только True или False.'''
 
-user_database = {'user': 'password',
-                 'iseedeadpeople': 'greedisgood',
-                 'hesoyam': 'tgm'}
+# user_database = {'user': 'password',
+#                  'iseedeadpeople': 'greedisgood',
+#                  'hesoyam': 'tgm'}
+#
+# # username = input('Ввести имя пользователя: ')
+# # password = input('Ввести пароль: ')
+#
+# def check_user(username, password):
+#     if (username in user_database.keys()) and (password in user_database.values()):
+#         return True
+#     else:
+#         return False
+#
+# print(check_user(username = 'user', password = '234'))
 
-# username = input('Ввести имя пользователя: ')
-# password = input('Ввести пароль: ')
-
-def check_user(username, password):
-    if (username in user_database.keys()) and (password in user_database.values()):
-        return True
-    else:
-        return False
-
-print(check_user(username = 'user', password = 'password'))
-
-
-print(check_user(username, password))
 '''проверить есть ли имя пользователя в словаре.
 проверить корректный ли пароль.
 как?'''
 
-# print(user_database.values())
+# Ещё один вариант решения
+
+username = input('TYpe a username: ')
+password = input('Type password for username: ')
+user_database = {'user': 'password',
+                 'iseedeadpeople': 'greedisgood',
+                 'hesoyam': 'tgm'}
+def check_user(username, password):
+    if username in user_database:
+        if password == user_database[username]:
+            return True
+        else:
+            return False
+    else:
+        return False
+print(check_user(username, password))
