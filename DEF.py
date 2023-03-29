@@ -1,20 +1,64 @@
-x = int(input('Введите год - '))
-def is_leap_year(x):
-    return (x%400==0) or ((x%4==0) and (x%100!=0))
-print(is_leap_year(x))
+# x = int(input('Введите год - '))
+# def is_leap_year(x):
+#     return (x%400==0) or ((x%4==0) and (x%100!=0))
+# print(is_leap_year(x))
+#
+'''Определяем четные и нечетные числа'''
+# A = int(input('Введите первое число - '))
+# B = int(input('Введите второе число - '))
+#
+#
+# def are_both_odd(A, B):
+#     # return A%2!=0 and B%2!=0 - Также возможный вариант
+#     return \
+#             A % 2 == 1 and \
+#             B % 2 == 1
+#
+# if are_both_odd(A, B):
+#     print('Числа А и B нечетные')
+# else:
+#     print(are_both_odd(A, B))
+#
+'''Про функции
+Вам нужно вместо ??? написать код, который возвращает из функции класс ветра в зависимости от его характера:
 
-A = int(input('Введите первое число - '))
-B = int(input('Введите второе число - '))
+от 1 до 4 м/с включительно - "weak [1]"
+от 5-10 м/c - "moderate [2]"
+от 11-18 м/c - "strong [3]"
+от 19 м/c - "hurricane [4]"'''
 
-def are_both_odd(A, B):
-    # return A%2!=0 and B%2!=0 - Также возможный вариант
-    return A % 2 == 1 and B % 2 == 1
-    print('Числа А и B нечетные')
-print(are_both_odd(A,B))
+# def - объявили функцию
+# get_wind_class - это мы так функцию назвали
+# speed - переменная , которую мы передали в функцию get_wind_class. Выходит, что это аргумент этой функции
 
-'''Про функции'''
+# speed = int(input('Введите скорость ветра - '))
+# def get_wind_class(speed):
+#     if (1 <=speed <= 4):
+#         return "weak [1]"
+#     elif (5<=speed<=10):
+#         return "moderate [2]"
+#     elif (11 <= speed <= 18):
+#         return "strong [3]"
+#     elif (speed>=19):
+#         return "hurricane [4]"
+# print(get_wind_class(speed))
 
-def get_wind_class(speed):
-    # def - объявили функцию
-    # get_wind_class - это мы так функцию назвали
-    # speed - переменная , которую мы передали в функцию get_wind_class. Выходит, что это аргумент этой функции
+'''Рбаота со словарём'''
+'''Дан словарь - user_database
+Допишите функцию check_user так, чтобы она по логину пользователя проверяла, 
+существует он или нет, после чего с помощью вложенного условия проверяла
+правильность пароля этого пользователя.
+
+Функция должна возвращать только True или False.'''
+
+user_database = {'user': 'password',
+    'iseedeadpeople': 'greedisgood',
+    'hesoyam': 'tgm'}
+
+def check_user(username, password):
+    return username and password in user_database.items[0]
+print(check_user('user','password'))
+
+
+
+
