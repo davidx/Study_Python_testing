@@ -305,13 +305,13 @@
 '''Дано двузначное число. Определите, входит ли в него цифра 5. 
 Попробуйте решить задачу с использованием целочисленного деления и деления с остатком.'''
 
-N = int(input('Введите двузначное число: '))
+# N = int(input('Введите двузначное число: '))
 # if N % 5 == 0:
 #     print('Bingo! ', N)
 #
 # else:
 #     print(N, 'Repeat')
-New_N = str(N)
+# New_N = str(N)
 # if '5' in New_N:
 #     print(New_N)
 # else:
@@ -328,3 +328,27 @@ New_N = str(N)
 #
 # print(frst_dig, scnd_dig)
 # print((frst_dig == 5) or (scnd_dig == 5))
+
+'''Проверьте, все ли элементы в списке являются уникальными.
+Можно попроювать через множества.'''
+# a_lot_of = [1,23,45,6,7,3,2,2,2,54,90]
+# check_a_lot_of = set(a_lot_of)
+# print(check_a_lot_of, type(check_a_lot_of))
+#
+# if len(a_lot_of) == len(check_a_lot_of):
+#     print('Equal')
+# else:
+#     print('not equal')
+# '\n'
+# '''или так'''
+# new_L = [1,2,3,4,4,5,6,5,6,]
+# print(len(new_L)==len(set(new_L)))
+
+'''Дано натуральное восьмизначное число. 
+Выясните, является ли оно палиндромом 
+(читается одинаково слева направо и справа налево).'''
+
+thing = int(input('type a num: '))
+print(thing)
+print(str(thing) == str(thing)[::-1])
+
