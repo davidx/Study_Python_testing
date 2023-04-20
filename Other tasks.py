@@ -333,7 +333,8 @@
 Можно попроювать через множества.'''
 # a_lot_of = [1,23,45,6,7,3,2,2,2,54,90]
 # check_a_lot_of = set(a_lot_of)
-# print(check_a_lot_of, type(check_a_lot_of))
+# print(check_a_lot_
+# of, type(check_a_lot_of))
 #
 # if len(a_lot_of) == len(check_a_lot_of):
 #     print('Equal')
@@ -348,7 +349,51 @@
 Выясните, является ли оно палиндромом 
 (читается одинаково слева направо и справа налево).'''
 
-thing = int(input('type a num: '))
-print(thing)
-print(str(thing) == str(thing)[::-1])
+# thing = int(input('type a num: '))
+# print(thing)
+# print(str(thing) == str(thing)[::-1])
 
+# list_ = [-5, 2, 4, 8, 12, -7, 5]
+#
+# for i in range(len(list_)):  # равносильно выражению for i in [0, 1, 2, 3, 4, 5, 6]:
+#     print("Индекс элемента: ", i)
+#     print("Значение элемента: ", list_[i])  # с помощью индекса получаем значение элемента
+#     print("---")
+# print("Конец цикла")
+
+# n = 6
+# while True:
+#     if n % 3 == 0:
+#         n = n // 3
+#         n += 1
+#         if n == 1:
+#             break
+#         print('Последнее число: ', n)
+#     else:
+#         break
+#     print('Итоговое последнее число: ', n)
+#
+# n = int(input('Put a num here: '))
+
+
+# if n % 2 != 0:
+
+# def check_h(n):
+#     while n>1:
+#         if n % 2 == 0:
+#             n /= 2
+#             if n == 1:
+#                 return True
+#                 print('Yahoo 2')
+#         print("Yahoo!", n)
+#     return False
+
+L = [1,5,7,3,9,-4,23,6,0]
+find_L = False
+i = 0
+while i < len(L):
+    find_L = L[i] % 2 == 0
+    if find_L:
+        break
+    i += 1
+print(L[i], ' ', find_L)
