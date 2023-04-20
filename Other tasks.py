@@ -388,6 +388,7 @@
 #         print("Yahoo!", n)
 #     return False
 
+
 L = [1,5,7,3,9,-4,23,6,0]
 find_L = False
 i = 0
@@ -395,5 +396,8 @@ while i < len(L):
     find_L = L[i] % 2 == 0
     if find_L:
         break
+        print('Окончание программы', L[i])
+
     i += 1
 print(L[i], ' ', find_L)
+
