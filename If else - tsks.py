@@ -107,16 +107,39 @@
 #     print('IV')
 
 '''Определите сезон в зависимости от номера месяца и выведите сообщение:'''
-month = int(input('Введите номер месяца - '))
+# month = int(input('Введите номер месяца - '))
+#
+# if month in [12,1,2]:
+#     print('Zima')
+# elif month in [3,4,5]:
+#     print('Vesna')
+# elif month in [6,7,8]:
+#     print('Leto')
+# elif month in [9,10,11]:
+#     print("Osen'")
+# else:
+#     if month or (month==0):
+#         print('Попробуйте заново ввести номер месяца от 1 до 12')
 
-if month in [12,1,2]:
-    print('Zima')
-elif month in [3,4,5]:
-    print('Vesna')
-elif month in [6,7,8]:
-    print('Leto')
-elif month in [9,10,11]:
-    print("Osen'")
+''' letter = input('Введите латинскую букву: ')
+if letter == 'a' or letter == 'e' or letter == 'i' \
+        or letter == 'o' or letter == 'u':
+    print('Гласная буква')
+elif letter == 'y':
+    print('Это гласная и согласная буква')
 else:
-    if month or (month==0):
-        print('Попробуйте заново ввести номер месяца от 1 до 12')
+    print('Согласная буква;', type(letter))
+    '''
+
+numb = int(input('Введите любое целое число: '))
+
+if numb % 2 == 0:
+        print(f'Вы ввели чётное число - {numb}')
+elif numb % 2!= 0:
+        print(f'Вы ввели нечётное число - {numb}')
+else:
+        print('Вы ввели что-то не то')
+
+
+
+

@@ -21,14 +21,14 @@
 #             break
 # print('end')
 
-n = 6
+n = int(input('Введите число: '))
 while True:
     if n % 3 == 0:
         n = n // 3
-        n += 1
-        if n == 1:
-            break
-        print('Последнее число: ', n)
-    else:
-        break
+
+    #     if n == 1:
+    #         break
+    # n += 1
+    # # else:
+    # #     break
     print('Итоговое последнее число: ', n)
