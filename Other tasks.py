@@ -22,8 +22,8 @@
 #     a+=1
 #     b+=a
 #     print(b)
-# print('INput an any nimber, please')
-# num = int(input())
+
+# num = int(input('INput any number, please'))
 # data = []
 # while num!=0:
 #     data.append(num)
@@ -333,8 +333,7 @@
 Можно попроювать через множества.'''
 # a_lot_of = [1,23,45,6,7,3,2,2,2,54,90]
 # check_a_lot_of = set(a_lot_of)
-# print(check_a_lot_
-# of, type(check_a_lot_of))
+# print(check_a_lot_of, type(check_a_lot_of))
 #
 # if len(a_lot_of) == len(check_a_lot_of):
 #     print('Equal')
@@ -389,15 +388,63 @@
 #     return False
 
 
-L = [1,5,7,3,9,-4,23,6,0]
-find_L = False
-i = 0
-while i < len(L):
-    find_L = L[i] % 2 == 0
-    if find_L:
-        break
-        print('Окончание программы', L[i])
+# L = [1,5,7,3,9,-4,23,6,0]
+# it = []
+# for i in L:
+#     if i % 2 == 0:
+#         it.append(i)
+# print(f'Все чётные числа в списке - {it}')
+# print(f'Максимально значение из списка среди чётных - {max(it)}')
 
-    i += 1
-print(L[i], ' ', find_L)
 
+'''Сумма чисел, кратных числу "6"'''
+
+# number = int(input('Type a number: '))
+# sum = 0
+#
+# while number != 0:
+#     if number % 6 == 0:
+#         sum += number
+#     elif number % 6 != 0:
+#         print('Вы ввели число не кратное числу "6"')
+#     number = int(input('Type a number again: '))
+#
+# print(f'Сумма чисел, кратных числу "6" - {sum}')
+
+'''Количество чисел, кратных числу "4"'''
+
+# number = int(input('Type a number: '))
+# sum = 0
+# count = 0
+# while number != 0 and count < 4:
+#     if number % 4 == 0:
+#         sum += number
+#         count += 1
+#     elif number % 4 != 0:
+#         print('Вы ввели число не кратное числу "4"')
+#     number = int(input('Type a number again: '))
+#
+# print(f'Сумма чисел, кратных числу "4" - {sum};'
+#       ,f'\nколичество чисел, кратных числу "4" - {count}.')
+
+
+'''Из последовательности натуральных чисел,
+количество чисел не более 1000, размер числа не больше 30 000'''
+
+number = int(input('Type a number: '))
+# L_numbers = []
+# sum = 0
+count = 0
+i_4 = 30000
+while number != 0: # and count < 10 and number < 30000:
+    # L_numbers.append((number))
+    # sum += number
+    # count += 1
+    if number % 10 == 4 and number < i_4:
+        i_4 = number
+    number = int(input('Type a number again: '))
+print(i_4)
+
+# print(L_numbers)
+# print(f'Сумма чисел, кратных числу "4" - {sum};'
+#       ,f'\nколичество чисел, кратных числу "4" - {count}.')

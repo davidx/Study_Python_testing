@@ -72,17 +72,42 @@
 
 # Ещё один вариант решения
 
-username = input('TYpe a username: ')
-password = input('Type password for username: ')
-user_database = {'user': 'password',
-                 'iseedeadpeople': 'greedisgood',
-                 'hesoyam': 'tgm'}
-def check_user(username, password):
-    if username in user_database:
-        if password == user_database[username]:
-            return True
-        else:
-            return False
-    else:
-        return False
-print(check_user(username, password))
+# username = input('TYpe a username: ')
+# password = input('Type password for username: ')
+# user_database = {'user': 'password',
+#                  'iseedeadpeople': 'greedisgood',
+#                  'hesoyam': 'tgm'}
+# def check_user(username, password):
+#     if username in user_database:
+#         if password == user_database[username]:
+#             return True
+#         else:
+#             return False
+#     else:
+#         return False
+# print(check_user(username, password))
+
+
+# for i in letters:
+#         if i == 'a' or i == 'o' or i == 'e'\
+#                 or i == 'u' or i == 'i':
+#                 vowels.append(i)
+#         elif i == 'y':
+#                 consonants.append(i)
+#                 vowels.append(i)
+#         else:
+#                 consonants.append(i)
+# print('В списке есть гласные буквы - ', vowels, len(vowels), '\n'
+# 'В списке есть согласные буквы - ', consonants, len(consonants), '\n')
+
+# n = 3
+# def print_ladder(n):
+#     for i in range(1, n):
+#       for
+# print(print_ladder(n))
+
+
+def print_ladder(n):
+    for i in range(1, n+1):
+        print(i * '*')
+print_ladder(n = 3)
