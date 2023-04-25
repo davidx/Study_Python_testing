@@ -14,3 +14,7 @@ print(5 in number_list and 7 in number_list)
 
 number = int(input('Put some nubers in here, please: '))
 print('5' in str(number) and '7' in str(number))
+
+# L = list(map(int, input().split()))
+#
+# print(not any(L))

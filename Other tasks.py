@@ -431,20 +431,21 @@
 '''Из последовательности натуральных чисел,
 количество чисел не более 1000, размер числа не больше 30 000'''
 
-number = int(input('Type a number: '))
-# L_numbers = []
-# sum = 0
-count = 0
-i_4 = 30000
-while number != 0: # and count < 10 and number < 30000:
-    # L_numbers.append((number))
-    # sum += number
-    # count += 1
-    if number % 10 == 4 and number < i_4:
-        i_4 = number
-    number = int(input('Type a number again: '))
-print(i_4)
+# number = int(input('Type a number: '))
+# # L_numbers = []
+# # sum = 0
+# count = 0
+# i_4 = 30000
+# while number != 0: # and count < 10 and number < 30000:
+#     # L_numbers.append((number))
+#     # sum += number
+#     # count += 1
+#     if number % 10 == 4 and number < i_4:
+#         i_4 = number
+#     number = int(input('Type a number again: '))
+# print(i_4)
 
 # print(L_numbers)
 # print(f'Сумма чисел, кратных числу "4" - {sum};'
 #       ,f'\nколичество чисел, кратных числу "4" - {count}.')
+
