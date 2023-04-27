@@ -66,7 +66,9 @@ N = [L[i]*M[i] for i in range(10)]
 print(N)
 # for a,b in zip(M,L):
 #     print('a = ',a,', b = ', b, ', c = ')
+Z = [a+b for a,b in zip(L,M)]
 
-Z = [a*b for a,b in zip(L,M)]
-print(Z)
+
+
+
 

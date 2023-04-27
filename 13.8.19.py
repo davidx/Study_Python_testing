@@ -13,3 +13,10 @@
 # L = list(map(int, input().split()))
 #
 # print(not any(L))
+
+amount_of_tickets = int(input('Введите желаемое кол-во билетов: '))
+
+print('Введите возраст посетителя для каждого из билетов')
+
+age_of_person = dict(key,value for key in range(amount_of_tickets) )
+print(age_of_person)

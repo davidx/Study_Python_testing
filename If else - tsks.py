@@ -235,13 +235,39 @@ else:
 #     print(not a)
 
     # aaabbccccdaa - подаётся такая последовательность.
-    # a3b2c4d1a2 - выводится должна такая
+    # a3b2c4d1a2 - должна такая
 
-stroka = 'aaabbccccdaa'
+stroka = 'aaabbccccdaaddcc'
+cnt = 0
+pervii_znak = stroka[0] # сохраняем первый символ
+result = ''
+
+for l in stroka:
+     if l == pervii_znak: # если символ совпадает с сохраненным,
+         cnt += 1 # то увеличиваем счетчик
+     else:
+         result += pervii_znak + str(cnt) # иначе - записываем в результат
+         pervii_znak = l # и обновляем сохраненный символ с его счетчиком
+         cnt = 1
+result += pervii_znak + str(cnt)
+print(result)
+
+# a = 'aa'
+# b = 'a'
+# c = a.count('a')
+# print(c)
 # print(type(str))
-str_n = [i for i in stroka]
-print(str_n[3])
-print(str_n)
-
-L = list(map(int, input().split()))
-print(not any(L))
+# str_n = [i for i in stroka]
+# str_nn = [i for i in stroka]
+# cnt = [a+b for a,b in zip(str_n,str_nn)]
+# print(cnt)
+# # str_3 = stroka.split('') - это не сработало, так как последовательность без разделителей.
+# for i in str_n:
+#     if i == 'a':
+# #         count_a +=1
+# print(str_n.count('a'))
+# # str_2 = ''.join(str_n)
+# # print(str_2)
+#
+# # L = list(map(int, input().split()))
+# # print(not any(L))
