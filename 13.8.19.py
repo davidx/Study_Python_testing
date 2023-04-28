@@ -46,4 +46,6 @@ def if_discount(tickets):
             cost_of_ticket = sum(tickets.values())
             return cost_of_ticket
 
-print(f'\nИтого Ваш заказ:\n{tickets}',f'\nИтоговая сумма заказа со всему скидками: {if_discount(tickets)} RUB')
+print(f'\n'
+      f'Итого Ваш заказ:\n{tickets}',f'\n'
+    f'Итоговая сумма заказа со всему скидками: {if_discount(tickets)} RUB')
