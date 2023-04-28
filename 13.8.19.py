@@ -10,13 +10,40 @@
 больше трёх человек на конференцию, то дополнительно получает 10% скидку на полную стоимость заказа.
 Для проверки загрузите полученное решение на GitHub и прикрепите ссылку.'''
 
-# L = list(map(int, input().split()))
-#
-# print(not any(L))
+cost_of_ticket = []
+prices_n_discounts = {
+    'Цены': {'a<18': 0, '18<= a <25': 990, 'a>=25': 1390},
+    'Скидки': {'от 3-х билетов': 0.9, 'какая-то ещё': 0.8}
+             }
 
-amount_of_tickets = int(input('Введите желаемое кол-во билетов: '))
+print('''Ценовые категории и условия предоставления скидок.
+Если посетителю конференции:
+* менее 18 лет, то он проходит на конференцию бесплатно.
+* От 18 до 25 лет — 990 руб.
+* От 25 лет — полная стоимость 1390 руб.
+* Если Вы регистрируете больше трёх человек на конференцию, то дополнительно получаете 10% скидку на полную стоимость заказа.''')
 
-print('Введите возраст посетителя для каждого из билетов')
+amnt_tickets = int(input('\nВведите желаемое кол-во билетов: '))
+visitors_n_ages = {'Посетитель ' + str(n): int(input('Введите возраст посетителя : ')) for n in range(1, amnt_tickets + 1)}
+# ^^ Здесь сразу создание словаря с порядковыми номерами Посетителей и возраста к ним.
 
-age_of_person = dict(key,value for key in range(amount_of_tickets) )
-print(age_of_person)
+for age in visitors_n_ages.values():
+    if age < 18:
+        cost_of_ticket.append(prices_n_discounts['Цены']['a<18'])
+    elif 18 <= age < 25:
+        cost_of_ticket.append(prices_n_discounts['Цены']['18<= a <25'])
+    elif age >= 25:
+        cost_of_ticket.append(prices_n_discounts['Цены']['a>=25'])
+
+tickets = {key: value
+           for key, value in zip(visitors_n_ages.keys(), cost_of_ticket)}
+def if_discount(tickets):
+    for values in tickets:
+        if len(tickets) > 3:
+            cost_of_ticket = sum(tickets.values())*prices_n_discounts['Скидки']['от 3-х билетов']
+            return cost_of_ticket
+        else:
+            cost_of_ticket = sum(tickets.values())
+            return cost_of_ticket
+
+print(f'\nИтого Ваш заказ:\n{tickets}',f'\nИтоговая сумма заказа со всему скидками: {if_discount(tickets)} RUB')

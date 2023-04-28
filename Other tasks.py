@@ -449,3 +449,67 @@
 # print(f'Сумма чисел, кратных числу "4" - {sum};'
 #       ,f'\nколичество чисел, кратных числу "4" - {count}.')
 
+n = int(input('Введите число: '))
+while True:
+    if n % 3 == 0:
+        n = n // 3
+
+    #     if n == 1:
+    #         break
+    # n += 1
+    # # else:
+    # #     break
+    print('Итоговое последнее число: ', n)
+
+    # L = [2,3,-1,5,6]
+    # # print(L)
+    # L = list(map(int, input('input: ').split()))
+    # print(not any(L))
+    # # # print(all(L_1),type(all(L_1)))
+    # #
+    # # N = list(map(int, input().split()))
+    # # N = print()
+    # i = 2
+    # j = 2
+    # M = [[i*j for j in range(1,11)] for i in range(1,11)]
+    # for i in M:
+    #     print(i, end='\n')
+
+    # T = [[i*j for j in range(1,11)] for i in range(1,11)]
+    # for i in T:
+    #     print(i,end=",\n")
+
+    # a = 3
+    # if a % 2 == 0:
+    #     print(bool(a))
+    # else:
+    #     print(not a)
+
+    # k = []
+    # for i in range(0,6):
+    #     if i % 2 == 0:
+    #         k.append(bool(i))
+    #     else:
+    #         k.append(not i)
+    # print(k)
+
+    # L = []
+    #
+    # for a in some_iter_obj:
+    #     if cond:
+    #         L.append(a)
+
+    # L = [int(input()) % 2 == 0 for a in range(5)]
+    # # L = [bool(int(input())) for i in range(5)]
+    # print(any(L) and not all(L))
+    L = [i for i in range(10)]
+    print(L)
+    M = [i for i in range(10, 0, -1)]
+    print(M)
+    N = [L[i] * M[i] for i in range(10)]
+    # for i in range (10):
+    #     N.append(L[i] * M[i])
+    print(N)
+    # for a,b in zip(M,L):
+    #     print('a = ',a,', b = ', b, ', c = ')
+    Z = [a + b for a, b in zip(L, M)]

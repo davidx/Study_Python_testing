@@ -237,20 +237,20 @@ else:
     # aaabbccccdaa - подаётся такая последовательность.
     # a3b2c4d1a2 - должна такая
 
-stroka = 'aaabbccccdaaddcc'
-cnt = 0
-pervii_znak = stroka[0] # сохраняем первый символ
-result = ''
-
-for l in stroka:
-     if l == pervii_znak: # если символ совпадает с сохраненным,
-         cnt += 1 # то увеличиваем счетчик
-     else:
-         result += pervii_znak + str(cnt) # иначе - записываем в результат
-         pervii_znak = l # и обновляем сохраненный символ с его счетчиком
-         cnt = 1
-result += pervii_znak + str(cnt)
-print(result)
+# stroka = 'aaabbccccdaaddcc'
+# cnt = 0
+# pervii_znak = stroka[0] # сохраняем первый символ
+# result = ''
+#
+# for l in stroka:
+#      if l == pervii_znak: # если символ совпадает с сохраненным,
+#          cnt += 1 # то увеличиваем счетчик
+#      else:
+#          result += pervii_znak + str(cnt) # иначе - записываем в результат
+#          pervii_znak = l # и обновляем сохраненный символ с его счетчиком
+#          cnt = 1
+# result += pervii_znak + str(cnt)
+# print(result)
 
 # a = 'aa'
 # b = 'a'
@@ -268,6 +268,4 @@ print(result)
 # print(str_n.count('a'))
 # # str_2 = ''.join(str_n)
 # # print(str_2)
-#
-# # L = list(map(int, input().split()))
-# # print(not any(L))
+# L = list(map(int, input().split()))
