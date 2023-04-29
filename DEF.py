@@ -172,17 +172,173 @@ n = 4
 check_palindrome("test")  # False
 check_palindrome("Кит на море не романтик")  # True'''
 
-thing = input('type some words: ')
-def if_palindrome(thing):
-    thing = thing.lower()
-    thing = thing.replace(" ", "")
-    thing = thing.replace("\n", "")
+# thing = input('type some words: ')
+# def if_palindrome(thing):
+#     thing = thing.lower()
+#     thing = thing.replace(" ", "")
+#     thing = thing.replace("\n", "")
+#
+#     if thing == thing[::-1]:
+#         return True
+#     else:
+#         return False
+#
+# print(if_palindrome(thing))
 
-    if thing == thing[::-1]:
-        return True
-    else:
-        return False
 
-print(if_palindrome(thing))
+# x = 3
+#
+# def func():
+#     global x
+#     print(x)
+#     x = 5
+#     x += 5
+#     return x
+#
+# print(func())
+
+# def multpl_f(m):
+#     nonlocal_m = m
+#     def local_mult(n):
+#         return n * nonlocal_m
+#     return local_mult
+# two_mul = multpl_f(2)
+# print(two_mul(5))
+#
+# '''Про глобальные переменные внутри def'''
+#
+# PI = 3.14
+#
+# def area_circl(r):
+#     global PI
+#     print('output PI before mod', PI)
+#     PI = 3.1415
+#     print('output PI after mod inside _def_')
+#     return PI * (r ** 2)
+#
+# print('output PI from global', PI)
+# print(area_circl(15))
+# print('output PI after calling _def_ and mod') # ВАЖНО! Если внутрь функции поместили переменную глобальную с помрощью _global_,
+# # она может подвергнуться изменениям, что нарушит работу остальной программы, если переменная не должна изменяться.
 
 
+# def mltply_any_(*numbers):
+#     rslt = 1
+#     for i in numbers:
+#         rslt *= i
+#     return rslt
+# print(mltply_any_(23,7,1,140))
+
+# def rec_fibb(n):
+#    if n == 1:
+#        return 1
+#    if n == 2:
+#        return 1
+#    return rec_fibb(n - 1) + rec_fibb(n - 2)
+#
+# print(rec_fibb(10))
+#
+'''С помощью рекурсивной функции найдите сумму чисел от 1 до n.'''
+
+# def sum_num(n):
+#     if n == 0:
+#         return 0
+#     return n + sum_num(n-1)
+#
+# print(sum_num(6))
+
+'''С помощью рекурсивной функции разверните строку'''
+
+# def str_in_oppst(txt):
+#     if len(txt) == 0:
+#         return ''
+#     else:
+#         return txt[-1] + str_in_oppst(txt[:-1])
+    # здесь сначала берём элемент из конца строки и прибавляем к нему оставшуюся строку без последнего элемемнта.
+
+
+'''С помощью рекурсивной функции разверните строку.'''
+# Это без рекурсии
+# def str_in_opposite(txt):
+#     txt = txt[:-1]
+#     print(txt)
+#
+# str_in_opposite('asdfghjklk')
+
+
+'''Дано натуральное число N. Вычислите сумму его цифр.
+При решении этой задачи нельзя использовать строки, списки, массивы (ну и циклы, разумеется)'''
+
+# def summ_of_num_insd_num(N):
+#     if N < 10:
+#         return N
+#     else:
+#         return N % 10 + summ_of_num_insd_num(N // 10)
+# print(summ_of_num_insd_num(100))
+
+'''ф-ия с встроенным бесконечным генератором чисел Фибоначчи'''
+# def fib():
+#     a,b = 0,1
+#     yield a
+#     yield b
+#
+#     while True:
+#         a,b = b, a + b
+#         yield b
+#
+# for num in fib():
+#    print(num)
+
+'''Создайте функцию-генератор, возвращающую бесконечную последовательность натуральных чисел.
+По умолчанию, она начинается с единицы и шагом 1, но пользователь может указать любой шаг
+и любое число в качестве аргумента функции, с которого будет начинаться последовательность.'''
+
+# def infnt_nums():
+#     a = 1
+#     yield a
+#
+#     while True:
+#         a += 1
+#         yield  a
+#
+# for num in infnt_nums():
+#     print(num)
+
+# ниже вариант с ручным вводом стартового значения и шага
+
+# def infnt_Num(start=1, step =1):
+#     counter = start
+#
+#     while True:
+#         yield counter
+#         counter += step
+#
+# for N in infnt_Num():
+#     print(N)
+
+'''Создайте генератор цикла,
+то есть в функцию на входе будет передаваться массив, например, [1, 2, 3],
+генератор будет вечно работать возвращая 1 2 3 1 2 3… и так далее.'''
+
+def infnt_mas(*massiv):
+    inf_mas = massiv
+
+    while True:
+
+        inf_mas += massiv*2
+        yield inf_mas
+
+for i in infnt_mas(1,2,3):
+    print(i)
+
+'''Или так'''
+
+def repeat_list(list_):
+   list_values = list_.copy()
+   while True:
+       value = list_values.pop(0)
+       list_values.append(value)
+       yield value
+
+for i in repeat_list([1, 2, 3]):
+   print(i)
