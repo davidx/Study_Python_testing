@@ -449,17 +449,17 @@
 # print(f'Сумма чисел, кратных числу "4" - {sum};'
 #       ,f'\nколичество чисел, кратных числу "4" - {count}.')
 
-n = int(input('Введите число: '))
-while True:
-    if n % 3 == 0:
-        n = n // 3
-
-    #     if n == 1:
-    #         break
-    # n += 1
-    # # else:
-    # #     break
-    print('Итоговое последнее число: ', n)
+# n = int(input('Введите число: '))
+# while True:
+#     if n % 3 == 0:
+#         n = n // 3
+#
+#     #     if n == 1:
+#     #         break
+#     # n += 1
+#     # # else:
+#     # #     break
+#     print('Итоговое последнее число: ', n)
 
     # L = [2,3,-1,5,6]
     # # print(L)
@@ -502,14 +502,15 @@ while True:
     # L = [int(input()) % 2 == 0 for a in range(5)]
     # # L = [bool(int(input())) for i in range(5)]
     # print(any(L) and not all(L))
-    L = [i for i in range(10)]
-    print(L)
-    M = [i for i in range(10, 0, -1)]
-    print(M)
-    N = [L[i] * M[i] for i in range(10)]
-    # for i in range (10):
-    #     N.append(L[i] * M[i])
-    print(N)
-    # for a,b in zip(M,L):
-    #     print('a = ',a,', b = ', b, ', c = ')
-    Z = [a + b for a, b in zip(L, M)]
+    # L = [i for i in range(10)]
+    # print(L)
+    # M = [i for i in range(10, 0, -1)]
+    # print(M)
+    # N = [L[i] * M[i] for i in range(10)]
+    # # for i in range (10):
+    # #     N.append(L[i] * M[i])
+    # print(N)
+    # # for a,b in zip(M,L):
+    # #     print('a = ',a,', b = ', b, ', c = ')
+    # Z = [a + b for a, b in zip(L, M)]
+
