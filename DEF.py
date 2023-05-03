@@ -320,25 +320,595 @@ check_palindrome("Кит на море не романтик")  # True'''
 то есть в функцию на входе будет передаваться массив, например, [1, 2, 3],
 генератор будет вечно работать возвращая 1 2 3 1 2 3… и так далее.'''
 
-def infnt_mas(*massiv):
-    inf_mas = massiv
-
-    while True:
-
-        inf_mas += massiv*2
-        yield inf_mas
-
-for i in infnt_mas(1,2,3):
-    print(i)
-
+# def infnt_mas(*massiv):
+#     inf_mas = massiv
+#
+#     while True:
+#
+#         inf_mas += massiv*2
+#         yield inf_mas
+#
+# for i in infnt_mas(1,2,3):
+#     print(i)
+#
 '''Или так'''
+#
+# def repeat_list(list_):
+#    list_values = list_.copy()
+#    while True:
+#        value = list_values.pop(0)
+#        list_values.append(value)
+#        yield value
+#
+# for i in repeat_list([1, 2, 3]):
+#    print(i)
 
-def repeat_list(list_):
-   list_values = list_.copy()
-   while True:
-       value = list_values.pop(0)
-       list_values.append(value)
-       yield value
 
-for i in repeat_list([1, 2, 3]):
-   print(i)
+# def twice_func(inside_func):
+#     """Функция, выполняющая дважды функцию принятую в качестве аргумента"""
+#     inside_func()
+#     inside_func()
+# def hello():
+#    print("Hello")
+#
+# twice_func(hello)
+#
+#
+# def one_func():
+#     nonlocal m
+
+# def my_decorator(a_function_to_decorate):
+#     # Здесь мы определяем новую функцию - «обертку». Она нам нужна, чтобы выполнять
+#     # каждый раз при вызове оригинальной функции, а не только один раз
+#     def wrapper(*args, **kwargs):
+#         # здесь поместим код, который будет выполняться до вызова, потом вызов
+#         # оригинальной функции, потом код после вызова
+#         print("Я буду выполнен до основного вызова!")
+#
+#         result = a_function_to_decorate()  # не забываем вернуть значение исходной функции
+#
+#         print("Я буду выполнен после основного вызова!")
+#         return result
+#
+#     return wrapper
+# print(my_decorator('Hello'))
+#
+'''Универсальный шаблон для декоратора'''
+# def my_decorator(fn):
+#     print("Этот код будет выведен один раз в момент декорирования функции")
+#     def wrapper(*args, **kwargs):
+#         print('Этот код будет выполняться перед каждым вызовом функции')
+#         result = fn(*args, **kwargs)
+#         print('Этот код будет выполняться после каждого вызова функции')
+#         return result
+#     return wrapper
+#
+# def abs(num):
+#     if num >= 0:
+#         return num
+#     else:
+#         return -num
+#
+#
+# print(abs(-8))
+
+
+# def greeting(*names):
+#     for name in names:
+#         print('Hi, there',name+'!')
+#
+# greeting('John Galt', 'Jason Born','Mano Chao')
+
+# def cnt_all(*nums):
+#     sum = 0
+#     for n in nums:
+#         sum+= n
+#     return sum
+# print(cnt_all(2,3,4,5,9))
+
+
+'''Сначала ф-ия декоратор с внедрением в неё основной ф-ии и возвратом значения'''
+import time
+
+# def decor_f_time(fn):
+#     def wrap_f_time():
+#         print(f'Здесь может быть стартовое сообщение, {fn}')
+#         t_0 = time.time()
+#         # ... some_variable. Здесь фактически должна лежать сама функция, которую пишем ниже.
+#         result = fn()
+#         fin_t = time.time() - t_0
+#         print(f'''Здесь может быть завершающее сообщение с какими-либо выводами,
+#               к примеру, про время выполнения функции: {fin_t}''')
+#         return fin_t
+#     return wrap_f_time()
+#
+# def pow_2():
+#     return 10000000 ** 2
+
+
+# def in_build_pow():
+#     return pow(10000000, 2)
+
+
+# pow_2 = decor_f_time(pow_2)
+# in_build_pow = decor_f_time(in_build_pow)
+
+# pow_2()
+# Запустилась функция <function pow_2 at 0x7f938401b158>
+# Функция выполнилась. Время: 0.0000011921
+
+# in_build_pow()
+
+# def decor_time(fn):
+#
+#     def wrap_f_time():
+#         print('Start of func - ') # put inhere a name of func
+#         t_00 = time.time()
+#         res = fn()
+#
+#         t_fin = time.time() - t_00
+#         print(f'\nEnd of a func: {t_fin}') # Put a name of func
+#         return res
+#     return wrap_f_time()
+#
+# a = 100
+# b = 2
+# @decor_time
+# def powering(a,b):
+#     a = 100
+#     b = 2
+#     return a**b
+
+# декоратор, в котором встроенная функция умеет принимать аргументы
+# def do_it_twice(func):
+#    def wrapper(*args, **kwargs):
+#        func(*args, **kwargs)
+#        func(*args, **kwargs)
+#    return wrapper
+#
+# @do_it_twice
+# def say_word(word):
+#    print(word)
+
+# say_word("Oo!!!")
+# # Oo!!!
+# # Oo!!!
+
+'''Напишите декоратор, который будет подсчитывать количество вызовов декорируемой функции.
+Для хранения переменной, содержащей количество вызовов, используйте nonlocal область декоратора.'''
+# def decor_counter(input_fnc):
+#     counter = 0
+#
+#     def wrap_for_fnc(*args,**kwargs):
+#         print('SMTHNG for the beginning')
+#         res = input_fnc(*args,**kwargs)
+#         nonlocal counter
+#         counter +=1
+#         print(res, 'SMTNHG for the end', counter)
+#     return wrap_for_fnc
+#
+# @decor_counter
+# def pow_2(a, b):
+#    return a + b
+# pow_2(4,6)
+# pow_2(9,7)
+
+'''Возьмите из предыдущего примера декорированные функции,
+которые возвращают время работы основной функции и найдите
+среднее время выполнения для 100 выполнений каждой функции.'''
+
+# import time
+#
+# N = 100
+#
+#
+# def decorator_time(fn):
+#    def wrapper():
+#        t0 = time.time()
+#        result = fn()
+#        dt = time.time() - t0
+#        return dt
+#    return wrapper
+#
+# @decorator_time
+# def pow_2():
+#    return 10000000 ** 2
+#
+# @decorator_time
+# def in_build_pow():
+#    return pow(10000000, 2)
+#
+#
+# mean_pow_2 = 0
+# mean_in_build_pow = 0
+# for r in range(N):
+#    mean_pow_2 += pow_2()
+#    mean_in_build_pow += in_build_pow()
+#
+# print(f"Функция {pow_2} выполнялась {N} раз. Среднее время: {mean_pow_2 / N:.10f}")
+# print(f"Функция {in_build_pow} выполнялась {N} раз. Среднее время: {mean_in_build_pow / 100:.10f}")
+# print(pow_2())
+
+
+'''Универсальный шаблон для декоратора:
+
+def my_decorator(fn):
+    print("Этот код будет выведен один раз в момент декорирования функции")
+    def wrapper(*args, **kwargs):
+        print('Этот код будет выполняться перед каждым вызовом функции')
+        result = fn(*args, **kwargs)
+        print('Этот код будет выполняться после каждого вызова функции')
+        return result
+    return wrapper
+    
+    '''
+
+
+'''
+Напишите декоратор, который будет сохранять результаты выполнения декорируемой функции в словаре. 
+Словарь должен находиться в nonlocal области в следующем формате: по ключу располагается 
+аргумент функции, по значению результат работы функции, например, {n: f(n)}.
+
+И при повторном вызове функции будет брать значение из словаря, а не вычислять заново.
+То есть словарь можно считать промежуточной памятью на время работы программы,
+где будут храниться ранее вычисленные значения. Исходная функция,
+которую нужно задекорировать имеет следующий вид и выполняет
+простое умножение на число 123456789:
+
+def f(n):
+   return n * 123456789
+   '''
+
+
+# def decor_f_mltply(fn):
+#     print(f"Star of function {fn}")
+#     res_dict_f_func = {}
+#     count = 0
+#     def wrapper(*args, **kwargs):
+#         nonlocal res_dict_f_func, count
+#         print(f'\nЭтот код будет выполняться перед каждым вызовом функции {fn}')
+#         count += 1
+#         result = fn(*args)
+#         for key in range(count):
+#             res_dict_f_func[str(*args)] = fn(*args)
+#         print(f'\nResult for {fn} - {result}'\
+#               f'\nResult is put into dict {res_dict_f_func}')
+#         print('\nЭтот код будет выполняться после каждого вызова функции')
+#     return wrapper
+#
+# @decor_f_mltply
+# def f_mltply(n):
+#    return n * 123456789
+#
+# f_mltply(2)
+# f_mltply(3)
+# f_mltply(10)
+# f_mltply(4)
+
+
+'''
+Возможное решение задчаи со словарём:
+
+def cache(func):
+   cache_dict = {}
+   def wrapper(num):
+       nonlocal cache_dict
+       if num not in cache_dict:
+           cache_dict[num] = func(num)
+           print(f"Добавление результата в кэш: {cache_dict[num]}")
+       else:
+           print(f"Возвращение результата из кэша: {cache_dict[num]}")
+       print(f"Кэш {cache_dict}")
+       return cache_dict[num]
+   return wrapper
+'''
+
+'''
+Напишите рекурсивную функцию, находящую минимальный элемент
+списка без использование циклов и встроенной функции min().
+'''
+
+# L = [i for i in range(15,50,5)]
+# print(L)
+# print(L[1:])
+# J = 354
+# print(len(str(J)))
+
+
+# def min_list(L):
+#     if len(L) == 1:
+#         return L[0]
+#     return L[0] if L[0] < min_list(L[1:]) else min_list(L[1:])
+
+
+# iter_obj = iter("Hello!")
+#
+# print(next(iter_obj))
+
+'''рекурсивная функция, которая зеркально разворачивает число.
+Предполагается, что число не содержит нули.'''
+# def mirror(a, res=0):
+#     if a == 0:
+#         return res
+#     else:
+#         return mirror(a // 10, res * 10 + a % 10)
+
+
+'''
+функцию equal(N, S), проверяющую, совпадает ли сумма цифр числа N с числом S.
+При написании программы следует обратить внимание на то,
+что, если S стала отрицательной, то необходимо сразу вернуть False.
+'''
+
+# def equal(N,S):
+#     if N < 10:
+#         return N
+#     else:
+#         return N % 10 + summ_of_num_insd_num(N // 10)
+
+# L = list(map(int, input('type: ').split()))
+# print(L)
+'''
+Вот,что на выходе:
+type: 5 5 9 6 64 45
+[5, 5, 9, 6, 64, 45]
+'''
+
+# N = 25
+# S = 7
+# sum_N = N % 10
+# print(sum_N)
+# def if_N_eq_S(N):
+#     global S
+#     sum_N = 0
+#     if sum_N == S:
+#         return f'N{N} в сумме чисел {sum_N} равен {S}'
+#     else:
+#         return sum_N + (if_N_eq_S(N % 10))
+
+# if_N_eq_S(N)
+
+'''
+вычисление, равна ли сумма чисел в "Н" и цифре в "С".
+фктически делим с остатком на 10 "Н" и остаток вычитаем из "С". 
+Сравниваем "Н" и "С", когда "Н" - однозначное, т.е. меньше 10. Если не равны, значит сумма не совпала
+Значит Враки.
+N = 255
+S = 12
+def equal(N, S):
+    if S < 0:
+        return False
+    if N < 10:
+        return N == S
+    else:
+        return equal(N // 10, S - N % 10)
+print(equal(N,S))
+'''
+
+
+
+
+'''генератор для приближенного вычисления числа e = 2.718.
+Для нахождения числа, удовлетворяющего необходимой точности будем использовать следующий цикл: (ниже, под комментами)
+
+e_n = (1 + 1/n)**n, В этой формуле число n — натуральное (1, 2, 3 и т. д.).'''
+
+'''
+
+def e(): # формула вычисления числа определённой точности в генератор размещаем формулу.
+    n = 1
+    while True:
+        yield (1 + 1/n) ** n
+        n += 1
+
+last = 0
+for a in e(): # e() - генератор
+    if (a - last) < 0.00000001: # ограничение на точность
+        print(a)
+        break # после достижения которого - завершаем цикл
+    else:
+        last = a # иначе - присваиваем новое значение
+
+'''
+
+
+
+'''
+здесь декоратор для проверки авторизации.
+Если авторизация Верняк, то запускаем функцию, какую хотим, если Враки, то сообщение о том,
+что нет авторизации. 
+
+yesno = input("""Введите Y, если хотите авторизоваться или N, 
+             если хотите продолжить работу как анонимный пользователь: """)
+
+auth = yesno == "Y"
+
+def is_auth(func):
+    def wrapper():
+        if auth:
+            print("Пользователь авторизован")
+            func()
+        else:
+            print("Пользователь неавторизован. Функция выполнена не будет")
+    return wrapper
+
+@is_auth
+def from_db():
+    print("some data from database")
+
+from_db()
+
+'''
+
+
+
+'''
+Реализуйте функцию-декоратор, которая проверяет доступ к функции по username пользователя.
+Все username пользователей хранятся в глобальной области видимости в списке USERS.
+При согласии пользователя на авторизацию ему предлагается ввести username,
+который также хранится в глобальной области видимости. Функция должна использовать два декоратора:
+один для проверки авторизации вообще (реализован выше), второй — для проверки доступа.
+'''
+
+# USERS = ['admin', 'guest', 'director', 'root', 'superstar']
+# def is_auth(func):
+#     def wrapper():
+#         global USERS
+#         if auth:
+#             print("Пользователь авторизован")
+#
+#             func()
+#         else:
+#             print("Пользователь неавторизован. Функция выполнена не будет")
+#     return wrapper
+#
+# def has_access(func):
+#     global USERS
+#     def wrap_for_acces():
+#         if auth:
+#             is_user = input('Введите имя пользователя: ')
+#             if is_user in USERS:
+#                 print('пользователь имеет доступ')
+#                 func()
+#             else:
+#                 print('Root access failed. Access denied')
+#
+#     return wrap_for_acces
+#
+#
+# yesno = input("""Введите Y, если хотите авторизоваться или N,
+#              если хотите продолжить работу как анонимный пользователь: """)
+#
+# auth = yesno == "Y"
+#
+# @is_auth
+# @has_access
+# def from_db():
+#     print("some data from database")
+#
+# from_db()
+
+# a_list = [1,4,9]
+# print(list(map(pow_, a_list)))  # [1, 4, 9]
+
+L = ['THIS', 'IS', 'LOWER', 'STRING']
+a_list = ['FT', 'SDXC', 'POI']
+# print(list(map(str.lower, L)))
+
+# result = filter(positive, [-2, -1, 0, 1, -3, 2, -3])
+
+# Возвращается итератор, т.е. перечисляйте или приводите к списку
+# print(list(result))
+
+
+line = [-2, -1, 0, 1, -3, 2, -3,4]
+# def pos(x):
+#     return x > 0
+
+# print(pos(-9))
+
+# pos_numb = list(filter(pos, line))
+
+# print(pos_numb)
+
+
+# def num_is_odd(fnc):
+#         if (fnc % 2) == 0:
+#             return True
+#         else:
+#             return False
+#
+# odd_line = list(filter(num_is_odd, line))
+# print(odd_line)
+
+
+# another_list = [i - 10 for i in range(1,20,2)]
+# print(another_list)
+#
+# def pow_2(x): return x*2
+# def posit(x): return x > 0
+#
+# # print(list(map(pow_2, filter(posit, another_list))))
+# #
+# # K = [i * 2 for i in another_list if i > 0]
+# # print(K)
+#
+# print([pow_2(i) for i in another_list])
+#
+# print(list(map(pow_2, another_list)))
+#
+# print([pow_2(i) for i in another_list] == list(map(pow_2, another_list)))
+
+d = {2 : "c", 1 : "d", 4 : "a", 3 : "b"}
+
+# print(sorted(d.items())) # вернёт список кортежей из пар ключ/значение
+# print(dict(sorted(d.items()))) # сортирует в вид словаря по ключам
+# print(d.keys(), d.values())
+# print(d.keys())
+# print(dict(sorted(d.items(), key=lambda x: x[1])))
+'''
+А вот чтобы отсортировать словарь по значениям, необходимо указать,
+что сортировать нужно по второму элементу кортежа ключ-значение.
+Тут на помощь приходят lambda-функции. У встроенной функции sortred()
+можно задать аргумент key, который укажет, по какому ключу нужно производить сортировку.
+
+sorted(d.items(), key=lambda x: x[1])  # сортировка по значению словаря
+'''
+
+'''
+Предположим у нас есть список с данными о росте и весе людей.
+Задача — отсортировать их по индексу массы тела. 
+Он вычисляется по формуле: рост в метрах возвести в квадрат,
+потом массу тела в килограммах разделить на полученную цифру.
+m \ h **2, где h  метрах
+'''
+# (вес, рост)
+'''data = [
+   (82, 191),
+   (68, 174),
+   (90, 189),
+   (73, 179),
+   (76, 184)
+ ]
+print('0 (original data): ', data)
+
+print('1 (sorted tuple with dict and lambda): ', sorted(data, key=lambda x: x[0] / (x[1] / 100) ** 2))
+print('1.1 (min value for data by IMT): ', min(data, key=lambda x: x[0] / (x[1] / 100) ** 2))
+
+print('2 (printed item in tuple): ', *data[0])
+
+for m,h in data:
+
+    new_data = {
+        key:value
+        for key, value in zip(data, [m / ((h / 100) ** 2) for m,h in data])
+    }
+
+print('3 (index massi tela + new dict with IMT and old data tuple: ', '\n','\n',
+      new_data)'''
+
+a = ["asd", "bbd", "ddfa", "mcsa"]
+
+print(list(map(len, a)))
+
+a_1 = ["это", "маленький", "текст", "обидно"]
+
+print(list(map(str.upper, a_1)))
+# def IMT(func):
+#     for m, h in data:
+#         return m / ((h / 100) ** 2)
+
+
+# data_dict = dict(sorted(data, IMT))
+
+# print(data_dict)
+
+
+
+# print(data[0][0])
+# print(dict(sorted(data)))
+
+
+# data_sort = list(map(IMT, dict(data)))
+# print(data_sort)
+# print(dict(sorted(data), key == lyambda(x): key/(values/100)**2))

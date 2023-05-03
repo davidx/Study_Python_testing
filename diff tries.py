@@ -73,10 +73,65 @@
 
 # оператор распаковки _*_ перед переменной
 
-a = [1,2,3]
-b = ['a','d','v']
-b = [*b,*a]
-print(b)
+# a = [1,2,3]
+# b = ['a','d','v']
+# b = [*b,*a]
+# print(b)
 
-# конструкции *args , **kwargs для того ,чтобы функция могла принимать неограниченное кол-во позиционных и именованных аргументов
+# конструкции *args , **kwargs для того ,чтобы функция
+# могла принимать неограниченное кол-во позиционных и именованных аргументов
 
+# dict = {}
+# print(dict)
+#
+# n=3
+#
+# for key in range(1,n+1):
+#     dict['key '+str(key+1)] = key
+# print('\n',dict)
+
+
+# def linear_solve(a, b):
+#     if a:
+#         return b/a
+#     elif not a and not b:
+#         return 'Бесконечное количество корней'
+#     else:
+#         return 'Нет корней'
+# print(linear_solve(0,0))
+'''
+Решение квадратного уравнения
+'''
+# def discriminant(a,b,c):
+#     return (b**2) - (4 * a * c)
+#
+#     # if ((b**2) - (4 * a * c)) > 0:
+#     # else:
+#     #     return 'Нет вещественных корней'
+#
+# def quadratic_solve(a,b,c):
+#     if discriminant(a,b,c) < 0:
+#         return 'Нет вещественных корней'
+#     elif discriminant(a,b,c) == 0:
+#         return f'У уравнения единственный корень {(-b/(2*a))}'
+#     else:
+#         return ((-b - discriminant(a,b,c)**0.5) // (2 * a)), ((-b + discriminant(a,b,c)**0.5) // (2 * a))
+#     # else:
+#     #     return discriminant(a,b,c)
+
+'''Распаковка данных'''
+# M = {'a' : 1,
+#      'b' : 0,
+#      'c' : -1}
+#
+# print(*M) # Есть ещё оператор **, но он не сработал, как в модуле.
+# print(*M.values())
+
+USERS = ['admin', 'guest', 'director', 'root', 'superstar']
+
+G = input('input your Username: ')
+
+if G in USERS:
+    print(bool(G))
+else:
+    print(not G)
