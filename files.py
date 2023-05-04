@@ -1,8 +1,10 @@
-myFile = open('.idea/namefile.txt', 'w')
-myFile.write('ttt')
-print('xxxx', file = myFile)
+# myFile = open('.idea/namefile.txt', 'w')
+# myFile.write('ttt')
+# print('xxxx', file = myFile)
 
-alpha = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+
+
+'''alpha = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
 alphaUp = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
 number = int(input('Введите число, на которое нужно сдвинуть текст: '))
 
@@ -24,4 +26,20 @@ with open("filename2.txt", encoding="utf8") as myFile:
             summary += changeChar(char)
 
 with open("output.txt", 'w', encoding="utf8") as myFile:
-    myFile.write(summary)
+    myFile.write(summary)'''
+
+
+'''Herzeleid'''
+import os
+
+
+# myFile_Herz_L = open(r'D:\Документы\Herzeleid.txt', 'r+')
+# myFile_Herz_L.write('Rammstein, Album "Herzeleid"')
+# myFile_Herz_L.close()
+# myFile_Herz_L = open(r'D:\Документы\Herzeleid.txt', 'r')
+# print(myFile_Herz_L.readline())
+
+hh = os.path.join('..','..','new-p','Herzeleid — копия.txt')
+print(hh)
+mFile = open(hh)
+print(mFile.readline())
