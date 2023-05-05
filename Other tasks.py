@@ -515,3 +515,38 @@
     # Z = [a + b for a, b in zip(L, M)]
 
 
+# txt = None
+# def change_txt(txt):
+#     n_t = txt
+#     for item in '!"\'#$%&()*+-,/:;<=>?@[\\]^_{|}~':
+#         n_t.replace(item,'')
+#     return n_t
+#
+# def most_occured(fn, length = 0):
+#         search_obj = fn
+
+
+with open(r'D:\SF\test_text_05.05.23.txt', 'r+', encoding='"utf8"') as txt:
+   txt_file = txt.read(400)
+   txt_file = txt_file.replace('*','')
+print(txt_file, type(txt_file))
+
+for i in r'!"\'#$%&()*+-,/:;<=>?@[\\]^_{|}~.': # Так, здесь, интерпретатор не видит почти все знаки на замену - перепечатать с клавы?
+         t_f = txt_file.replace(i,'')
+print(t_f.split()) #здесь на выходе список строковых значений через запятую.
+
+def most_occured(text, length = 0):
+
+    output = []
+    for item in text:
+        if len(item) == length:
+            output = output.append(item)
+        elif len(item) > length:
+
+        else:
+            g
+    return output
+
+
+
+

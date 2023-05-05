@@ -127,11 +127,11 @@
 # print(*M) # Есть ещё оператор **, но он не сработал, как в модуле.
 # print(*M.values())
 
-USERS = ['admin', 'guest', 'director', 'root', 'superstar']
-
-G = input('input your Username: ')
-
-if G in USERS:
-    print(bool(G))
-else:
-    print(not G)
+# USERS = ['admin', 'guest', 'director', 'root', 'superstar']
+#
+# G = input('input your Username: ')
+#
+# if G in USERS:
+#     print(bool(G))
+# else:
+#     print(not G)
