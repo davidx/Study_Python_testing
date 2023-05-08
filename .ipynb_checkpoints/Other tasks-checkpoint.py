@@ -514,14 +514,42 @@
     # #     print('a = ',a,', b = ', b, ', c = ')
     # Z = [a + b for a, b in zip(L, M)]
 
-from matplotlib import pyplot as plt
-import numpy as np
 
-# Generate 100 random data points along 3 dimensions
-x, y, scale = np.random.randn(3, 100)
-fig, ax = plt.subplots()
+# def most_occured(fn, length = 0):
+#         search_obj = fn
 
-# Map each onto a scatterplot we'll create with Matplotlib
-ax.scatter(x=x, y=y, c=scale, s=np.abs(scale)*500)
-ax.set(title="Some random data, created with JupyterLab!")
-plt.show()
+
+eng_alph = "qwertyuiopasdfghjklzxcvbnm"
+SIMBOLS = "!@#$%^&*()_+-=|?><.,;:'\"\\/{}[]"
+"""
+    Функция <no_symb(txt):> принимает строку с текстом. Убирает все знаки препинания и возвращает
+     текст без символов.
+    """
+def no_symb(txt):
+
+    for sym in SIMBOLS:
+        txt = txt.replace(sym,'')
+    return txt.split()
+
+with open(r'D:\SF\test_text_05.05.23.txt', "r", encoding="UTF-8") as f:
+     text = f.read().lower()
+txt_no_symb = no_symb(text)
+
+print(txt_no_symb,'\n',
+      len(txt_no_symb))
+
+output = [it for it in txt_no_symb if len(it) == 3]
+
+print(output)
+# def most_often(txt, length = 3):
+#
+#     output = []
+#
+#     for item in txt:
+#         if len(item) == length:
+#             output = output.append(item)
+#         elif len(item) > length:
+#
+#         # else:
+#
+#     return output
