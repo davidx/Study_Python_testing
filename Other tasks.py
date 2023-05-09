@@ -513,15 +513,46 @@
     # # for a,b in zip(M,L):
     # #     print('a = ',a,', b = ', b, ', c = ')
     # Z = [a + b for a, b in zip(L, M)]
+#
+# from matplotlib import pyplot as plt
+# import numpy as np
+#
+# # Generate 100 random data points along 3 dimensions
+# x, y, scale = np.random.randn(3, 100)
+# fig, ax = plt.subplots()
+#
+# # Map each onto a scatterplot we'll create with Matplotlib
+# ax.scatter(x=x, y=y, c=scale, s=np.abs(scale)*500)
+# ax.set(title="Some random data, created with JupyterLab!")
+# plt.show()
 
-from matplotlib import pyplot as plt
-import numpy as np
+class Person:
+    def __init__(self, name='', id_numb=0, birth_date='', **kwargs):
+        self.name = name
+        self.id_numb = id_numb
+        self.birth_date = birth_date
+    def get_info(self):
+        print('Данные экземпляра:', self.name, '\n',
+              self.id_numb, '\n',
+              self.birth_date)
+    def is_Employee(self):
+        return False
 
-# Generate 100 random data points along 3 dimensions
-x, y, scale = np.random.randn(3, 100)
-fig, ax = plt.subplots()
+class Empl_1(Person):
+    def __init__(self, name, id_numb, birth_date='', departm='', salary=0, **kwargs):
+        self.departm = departm
+        self.salary = salary
+        Person.__init__(self, name, id_numb, birth_date, **kwargs)
+    def is_Employee(self):
+        return True
+#     def employee_info(self):
+#         print('Данные экземпляра:',self.name, '\n',
+#              self.idNum)
 
-# Map each onto a scatterplot we'll create with Matplotlib
-ax.scatter(x=x, y=y, c=scale, s=np.abs(scale)*500)
-ax.set(title="Some random data, created with JupyterLab!")
-plt.show()
+pers_1 = Person(name='Kit', id_numb=1234, birth_date='12.06.77')
+
+pers_2 = Person(name='Joel', id_numb=1001, birth_date='13.05.66')
+emp = Empl_1(name='Number_two', id_numb=1002, departm='security', salary=30000)
+
+pers_2.get_info()
+emp.get_info()

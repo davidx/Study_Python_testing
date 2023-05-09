@@ -117,36 +117,42 @@ print(event_object.timestamp,'\n',
           event_object.type)'''
 
 
-class Products:
-    def __init__(self, goods_id=0, name='',
-                 cost=0, stock=0, min_stock=0,which_animal='', weight_for_sell=0,
-                 date_of_prod=0):
-        self.id = goods_id
-        self.name_for_good = name
-        self.cost = cost
-        self.stock = stock
-        self.min_stock = min_stock
-        self.which_an = which_animal
-        self.weight = weight_for_sell
-        self.start_date = date_of_prod
+# class Products:
+#     def __init__(self, goods_id=0, name='',
+#                  cost=0, stock=0, min_stock=0,which_animal='', weight_for_sell=0,
+#                  date_of_prod=0):
+#         self.id = goods_id
+#         self.name_for_good = name
+#         self.cost = cost
+#         self.stock = stock
+#         self.min_stock = min_stock
+#         self.which_an = which_animal
+#         self.weight = weight_for_sell
+#         self.start_date = date_of_prod
+#
+#     def is_min_stock(self):
+#         # return self.stock if self.stock > self.min_stock else False
+#         return f'Наличие товара на минимуме - {self.stock}kg' if (self.stock <= (self.min_stock +1))\
+#             else 'Товара достаточно'
+#
+#
+# class Meat(Products):
+#     is_in_food=True
+#
+# rabbit = Meat(goods_id=12324, cost=12.45, stock=6, which_animal='rabbit', min_stock=5)
+#
+# print(rabbit.stock, rabbit.cost)
+# print(rabbit.is_min_stock())
+#
+# print(isinstance(rabbit, Meat))
 
-    def is_min_stock(self):
-        # return self.stock if self.stock > self.min_stock else False
-        return f'Наличие товара на минимуме - {self.stock}kg' if (self.stock <= (self.min_stock +1))\
-            else 'Товара достаточно'
 
+import json
 
-class Meat(Products):
-    is_in_food=True
+with open(f'D:\SF\Pet_House.txt', 'r', encoding="utf8") as f:
+    pet_inf = json.load(f)
 
-rabbit = Meat(goods_id=12324, cost=12.45, stock=6, which_animal='rabbit', min_stock=5)
-
-print(rabbit.stock, rabbit.cost)
-print(rabbit.is_min_stock())
-
-print(isinstance(rabbit, Meat))
-
-
+print(json.dumps(pet_inf, indent=4))
 
 
 
