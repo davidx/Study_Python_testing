@@ -11,11 +11,16 @@ class Rectangle:
         return self.width * self.heith
 
 # r0 = Rectangle(width=8, heith=4)
-# print(r0.calc_Area())
+# print(r0.calc_Area()) # two strings to test
 
 class Square:
     def __init__(self, side):
         self.side = side
+        # if side == 0:
+        #     raise NonPositiveDigitException('Wrong value')
+    def __str__(self):
+        print(f'Сторона квадрата: {self.side}')
+
     def area_Square(self):
         return self.side ** 2
 class Round:
@@ -24,3 +29,10 @@ class Round:
     def area_Round(self):
         return (self.r ** 2)*3.14
 
+# class SquareException(Exception):
+#     pass
+# class NonPositiveDigitException(SquareException):
+#     pass
+
+# sq_test = Square(int(input("введите сторону квадрата: ")))
+# print(sq_test.area_Square()) # strings to test exception inside class

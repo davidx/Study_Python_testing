@@ -53,27 +53,7 @@
 # else:
 #    print("Делить на ноль нельзя")
 
-# try:
-#     age = int(input("How old are you?"))
-#     if age > 100 or age <= 0:
-#         raise ValueError("Тебе не может быть столько лет")
-# except ValueError as error:
-#     print(error)
-#     print("Неправильный возраст")
-# else:
-#     print(f"You are {age} years old!")
 # #
-# try:
-#     x = int(input('введите число/числа - '))
-#     print(x)
-# except ValueError as error:
-#     print(error)
-#     print('Введите число заново')
-# else:
-#     print(f'Вы ввели правильное число - {x}')
-# finally:
-#     print('Выход из программы')
-#
 # '''Проверка целого числа А'''
 #
 # A = int(input('Введите число - '))
@@ -269,3 +249,25 @@ else:
 # # str_2 = ''.join(str_n)
 # # print(str_2)
 # L = list(map(int, input().split()))
+
+
+try:
+    age = int(input("How old are you?"))
+    if age > 100 or age <= 0:
+        raise ValueError("Тебе не может быть столько лет")
+except ValueError as error:
+    print(error)
+    print("Неправильный возраст")
+else:
+    print(f"You are {age} years old!")
+#
+try:
+    x = int(input('введите число/числа - '))
+    print(x)
+except ValueError as error:
+    print(error)
+    print('Введите число заново')
+else:
+    print(f'Вы ввели правильное число - {x}')
+finally:
+    print('Выход из программы')

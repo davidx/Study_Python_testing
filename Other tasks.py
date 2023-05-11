@@ -542,7 +542,7 @@ class Empl_1(Person):
     def __init__(self, name, id_numb, birth_date='', departm='', salary=0, **kwargs):
         self.departm = departm
         self.salary = salary
-        Person.__init__(self, name, id_numb, birth_date, **kwargs)
+        Person.__init__(self, name, id_numb, birth_date, **kwargs)А
     def is_Employee(self):
         return True
 #     def employee_info(self):
@@ -556,3 +556,33 @@ emp = Empl_1(name='Number_two', id_numb=1002, departm='security', salary=30000)
 
 pers_2.get_info()
 emp.get_info()
+
+
+'''try:
+    age = int(input("How old are you?"))
+    if age > 100 or age <= 0:
+        raise ValueError("Тебе не может быть столько лет")
+except ValueError as error:
+    print(error)
+    print("Неправильный возраст")
+else:
+    print(f"You are {age} years old!")
+#
+try:
+    x = int(input('введите число/числа - '))
+    print(x)
+except ValueError as error:
+    print(error)
+    print('Введите число заново')
+else:
+    print(f'Вы ввели правильное число - {x}')
+finally:
+    print('Выход из программы')'''
+
+
+class NonPositiveDigitException(ValueError):
+    pass
+class Square:
+    def __init__(self, a):
+        if a <= 0:
+            raise NonPositiveDigitException('Неправильно указанна сторона квадрата')
