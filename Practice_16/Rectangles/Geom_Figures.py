@@ -1,12 +1,21 @@
-# import necessary modules
-import unittest
-# import pytest
-# import pytest_check as check
-# import pytest_ordering as ordering
+import unittest # import third-party modules
+from typing import Union, Optional
+##############################################################################
+class Rectangle: # declaration class
+    """This is class for any Rectangle
+    Первые три строки __init__ определяют конструктор класса
+    и определяют две переменные для проверки. Тело конструктора
+    в некоторых языках конструктора называется инициализацией
+    объекта.
+    Это простой метод __init__ (), который обрабатывает вход в конструктор
+    и инициализирует экземпляр объекта.
+    """
+    # Private fields ########################################################
+    # Свойства или атрибуты класса Rectangle
+    width:  Union[int, float] = 3 # data fields contain 3 by default
+    heith:  Union[int, float] = 3 # data fields contain 3 by default
 
-# class declaration
-class Rectangle:
-    """This is class for any Rectangle"""
+    # Methods ###############################################################
     #  define the structure of class using __init__ method
     def __init__(self, width:int = 3, heith:int = 3):
         self.width = width
@@ -48,13 +57,14 @@ class Square(Rectangle):
     def __str__(self):
         print(f'Сторона квадрата: {self.side}')
 class Round(Rectangle):
+    """This is class for any square"""
     def __init__(self, r: int = 3):
             # To inherit members use super ()
-        super().__init__(r)
+            super().__init__(r)
         self.r = r
-    # override __str__ method for a new Round class
         if self.r <= 0:
             raise ValueError
+    # override __str__ method for a new Round class
     def __str__(self):
     # summarize the area of round
     def calc_Area(self):
