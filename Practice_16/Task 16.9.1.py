@@ -1,17 +1,28 @@
 class Triangle:
-    def __init__(self, name, h, base):
+    """A class representing a triangle with a name, height, and base."""
+
+    def __init__(self, name: str, h: float, base: float):
         self.name = name
         self.h = h
         self.base = base
-    def calc_area_triang(self):
+
+    def calc_area_triang(self) -> float:
+        """Calculates and returns the area of the triangle."""
         return self.h * (self.base / 2)
-    def __str__(self):
+
+    def __str__(self) -> str:
+        """Returns a string representation of the triangle."""
         return f'Triangle: {self.name}, {self.h}, {self.base}'
-    def get_info_triang(self):
+
+    def get_info_triang(self) -> None:
+        """Prints the triangle's properties (name, height, and base)."""
         print('Данные фигуры:'
-              f'\nИмя: {self.name}'
-              f'\nвысота = {self.h}'
-              f'\nоснование = {self.base}')
+              f'
+Имя: {self.name}'
+              f'
+высота = {self.h}'
+              f'
+основание = {self.base}')
 
 triang_1 = Triangle('first', 12, 25)
 # triang_1.get_info_triang()
