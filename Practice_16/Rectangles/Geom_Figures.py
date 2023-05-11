@@ -28,7 +28,7 @@ class Rectangle: # declaration class
         self.heith = heith
 
         # Check for negative or zero
-        if width <= 0:
+        if width <= 0: # self.width
             raise ValueError
         if heith <= 0:
             raise ValueError
@@ -78,6 +78,7 @@ class Round(Rectangle):
     def __str__(self):
     def calc_Area(self):
         super().__init__()
+        
 # create a test class that inherits unittest.TestCase
 class TestGetArea(unittest.TestCase):
     """Test structure Rectangle class"""
