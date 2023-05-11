@@ -69,8 +69,6 @@ class Square(Rectangle):
 class Round(Rectangle):
     """This is class for any circle"""
     def __init__(self, r: int = 3):
-            # To inherit members use super ()
-            super().__init__(r)
         self.r = r
         if self.r <= 0:
             raise ValueError
