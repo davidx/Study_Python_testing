@@ -1,6 +1,6 @@
 import unittest # import third-party modules
 from typing import Union, Optional
-##############################################################################
+############################################################################
 class Rectangle: # declaration class
     """This is class for any Rectangle
     Первые три строки __init__ определяют конструктор класса
@@ -12,24 +12,34 @@ class Rectangle: # declaration class
     """
     # Private fields ########################################################
     # Свойства или атрибуты класса Rectangle
-    width:  Union[int, float] = 3 # data fields contain 3 by default
-    heith:  Union[int, float] = 3 # data fields contain 3 by default
+    width: Union[int, float] = 3  # data fields contain 3 by default
+    heith: Union[int, float] = 3  # data fields contain 3 by default
 
     # Methods ###############################################################
     #  define the structure of class using __init__ method
     def __init__(self, width:int = 3, heith:int = 3):
+
+        # Initializes properties
+        # In this step we assign values to the instance variables
+
+        # first initialize the width
         self.width = width
+        # second initialize the height
+        self.heith = heith
+
+        # Check for negative or zero
         if width <= 0:
             raise ValueError
-        self.heith = heith
         if heith <= 0:
             raise ValueError
+
     # getter for class attribute 'width'
     def get_width(self):
         return self.width
     # getter for class attribute 'height'
     def get_heith(self):
         return self.heith
+
     # getter for calculating the area
     def calc_Area(self):
         return self.width * self.heith
@@ -51,13 +61,13 @@ class Square(Rectangle):
         return self.width
     def get_heith(self):
         return self.heith
-    def calc_Area(self):
+    def calc_area(self):
         return self.width * self.heith
     # method for display a string
     def __str__(self):
         print(f'Сторона квадрата: {self.side}')
 class Round(Rectangle):
-    """This is class for any square"""
+    """This is class for any circle"""
     def __init__(self, r: int = 3):
             # To inherit members use super ()
             super().__init__(r)
@@ -66,7 +76,6 @@ class Round(Rectangle):
             raise ValueError
     # override __str__ method for a new Round class
     def __str__(self):
-    # summarize the area of round
     def calc_Area(self):
         super().__init__()
 # create a test class that inherits unittest.TestCase
