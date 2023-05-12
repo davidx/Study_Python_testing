@@ -1,7 +1,7 @@
 # myFile = open('.idea/namefile.txt', 'w')
 # myFile.write('ttt')
 # print('xxxx', file = myFile)
-
+#
 
 
 '''alpha = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
@@ -145,7 +145,6 @@ print(event_object.timestamp,'\n',
 # print(rabbit.is_min_stock())
 #
 # print(isinstance(rabbit, Meat))
-
 
 
 
