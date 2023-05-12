@@ -53,7 +53,8 @@ import os
 В файле ожидается смешанный текст на двух языках — русском и английском.
 '''
 
-
+'''
+'''
 
 '''class User:
     def __init__(self, name, birth_date, home_state, gender):
@@ -145,7 +146,6 @@ print(event_object.timestamp,'\n',
 # print(rabbit.is_min_stock())
 #
 # print(isinstance(rabbit, Meat))
-
 
 
 
