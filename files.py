@@ -144,9 +144,8 @@ print(event_object.timestamp,'\n',
 #
 # print(rabbit.stock, rabbit.cost)
 # print(rabbit.is_min_stock())
-#
-# print(isinstance(rabbit, Meat))
 
+# print(isinstance(rabbit, Meat))
 
 
 
